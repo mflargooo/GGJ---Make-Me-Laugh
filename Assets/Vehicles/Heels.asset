@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Heels
   m_EditorClassIdentifier: 
   continuousInput: 1
-  rotateSpeed: 150
+  rotateSpeed: 100
   acceleration: 30
-  maxVelocity: 7
-  traction: 0.3
+  maxVelocity: 12
+  traction: 0.75
   backwardScalar: 0.5
-  spinDragAngle: 6
+  spinDragAngle: 5
   tiltAngle: 0

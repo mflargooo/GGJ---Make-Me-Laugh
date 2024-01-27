@@ -19,11 +19,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject model;
     [SerializeField] private GameObject frontAttack;
     [SerializeField] private GameObject backAttack;
+    [SerializeField] private float minSwitchTime;
+    [SerializeField] private float maxSwitchTime;
+
+    [SerializeField] private VehicleStats[] vehicles;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        StartCoroutine(RandomSwitch());
     }
 
     // Update is called once per frame
@@ -39,7 +44,7 @@ public class PlayerController : MonoBehaviour
         RotationDrag();
         AttackHandler();
 
-        Camera.main.fieldOfView = Mathf.SmoothDamp(Camera.main.fieldOfView, Mathf.Clamp(9.5f * rb.velocity.magnitude, 60f, 85f), ref fovVelocity, .2f);
+        Camera.main.fieldOfView = Mathf.SmoothDamp(Camera.main.fieldOfView, Mathf.Clamp(9.5f * rb.velocity.magnitude, 60f, 70f), ref fovVelocity, .2f);
     }
 
     void ContinuousMovement()
@@ -88,5 +93,20 @@ public class PlayerController : MonoBehaviour
     {
         frontAttack.SetActive(rb.velocity.magnitude > deadlyVelocityThreshold && Vector3.Dot(rb.velocity, transform.forward) > 0);
         backAttack.SetActive(rb.velocity.magnitude > deadlyVelocityThreshold * vs.backwardScalar && Vector3.Dot(rb.velocity, transform.forward) < 0);
+    }
+
+    IEnumerator RandomSwitch()
+    {
+        while (true)
+        {
+            vs = vehicles[Random.Range(0, vehicles.Length)];
+            print("Switched to " + vs.name + "!");
+            yield return new WaitForSeconds(Random.Range(minSwitchTime, maxSwitchTime));
+        }
+    }
+
+    public float GetSpeed()
+    {
+        return moveSpeed;
     }
 }

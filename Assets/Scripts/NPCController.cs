@@ -6,10 +6,12 @@ using UnityEngine.AI;
 public class NPCController : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent nav;
+    [SerializeField] private GameObject flop;
     // Start is called before the first frame update
     void Start()
     {
         nav = GetComponent<NavMeshAgent>();
+        nav.destination = transform.position;
         StartCoroutine(Wander());
     }
 
@@ -32,5 +34,12 @@ public class NPCController : MonoBehaviour
             else
                 yield return null;
         }
+    }
+
+    public void Hit(Vector3 force)
+    {
+        GameObject ragdoll = Instantiate(flop, transform.position + Vector3.up, transform.rotation);
+        ragdoll.GetComponent<Rigidbody>().AddForce(force, ForceMode.Impulse);
+        Destroy(gameObject);
     }
 }

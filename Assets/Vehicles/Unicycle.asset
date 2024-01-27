@@ -15,8 +15,8 @@ MonoBehaviour:
   continuousInput: 1
   rotateSpeed: 90
   acceleration: 120
-  maxVelocity: 13
+  maxVelocity: 18
   traction: 0.5
   backwardScalar: 0.7
-  spinDragAngle: 6
+  spinDragAngle: 5
   tiltAngle: 8
