@@ -21,8 +21,21 @@ public class NPCController : MonoBehaviour
         if (name.Contains("NPC")) StartCoroutine(Wander());
         else if (name.Contains("Child"))
         {
-            nav.destination = player.transform.position;
-            StartCoroutine(Chase());
+            if (player)
+            {
+                nav.destination = player.transform.position;
+                StartCoroutine(Chase());
+            }
+            else StartCoroutine(Wander());
+        }
+        else if (name.Contains("Criminal"))
+        {
+            if (player)
+            {
+                StartCoroutine(Avoid());
+            }
+            else
+                StartCoroutine(Wander());
         }
     }
 
@@ -32,11 +45,21 @@ public class NPCController : MonoBehaviour
         nav.destination = new Vector3(Random.Range(-10f, 10f), transform.position.y, Random.Range(-10f, 10f));
     }
 
+    private IEnumerator Avoid()
+    {
+        while (true)
+        {
+            print("avoiding");
+            nav.destination = transform.position + (new Vector3(transform.position.x, 0f, transform.position.z) - new Vector3(player.transform.position.x, 0f, player.transform.position.z)).normalized * 5f;
+            yield return null;
+        }
+    }
+
     IEnumerator Chase()
     {
         while (player)
         {
-            if (!player.GetComponent<Health>().invinc && (transform.position - player.transform.position).magnitude < 1.5f)
+            if (!player.GetComponent<Health>().invinc && (transform.position - player.transform.position).magnitude < 1.5f && player.GetComponent<Rigidbody>().velocity.magnitude < 5f)
             {
                 player.GetComponent<Health>().Damage();
                 ResetChase();
