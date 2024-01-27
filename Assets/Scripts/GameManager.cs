@@ -12,4 +12,10 @@ public class GameManager : MonoBehaviour
         /* script to update canvas */
         print(score);
     }
+
+    public static void GameOver()
+    {
+        print("Game Over");
+        Time.timeScale = .5f;
+    }
 }

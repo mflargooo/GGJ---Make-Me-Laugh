@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
+    private Health hs;
+    private AudioSource audioSource;
+
     private Vector2 input = Vector2.zero;
     private float moveSpeed = 0f;
 
@@ -24,10 +27,14 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private VehicleStats[] vehicles;
 
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        hs = GetComponent<Health>();
+        audioSource = GetComponent<AudioSource>();
+
         StartCoroutine(RandomSwitch());
     }
 
@@ -37,6 +44,8 @@ public class PlayerController : MonoBehaviour
         input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         deadlyVelocityThreshold = vs.maxVelocity * .75f;
 
+        if (hs.recovering) return;
+
         if (vs.continuousInput)
             ContinuousMovement();
         else
@@ -45,13 +54,15 @@ public class PlayerController : MonoBehaviour
         AttackHandler();
 
         Camera.main.fieldOfView = Mathf.SmoothDamp(Camera.main.fieldOfView, Mathf.Clamp(9.5f * rb.velocity.magnitude, 60f, 70f), ref fovVelocity, .2f);
+
+        Audio();
     }
 
     void ContinuousMovement()
     {
         if (input.y == 0)
         {
-            if (rb.velocity.magnitude > .1f)
+            if (rb.velocity.magnitude > .05f)
                 moveSpeed *= vs.traction;
             else
                 rb.velocity = new Vector3(0f, rb.velocity.y, 0f);
@@ -60,7 +71,7 @@ public class PlayerController : MonoBehaviour
             moveSpeed = Mathf.Clamp(moveSpeed + vs.acceleration * input.y * Time.deltaTime * Time.deltaTime, -vs.maxVelocity * vs.backwardScalar, vs.maxVelocity);
 
         rb.velocity = Vector3.up * rb.velocity.y + transform.forward * moveSpeed;
-        rb.transform.Rotate(Vector2.up * input.x * input.y * (rb.velocity.magnitude > .1f ? 1f : 0f) * vs.rotateSpeed * Time.deltaTime);
+        transform.Rotate(Vector2.up * input.x * input.y * (rb.velocity.magnitude > .1f ? 1f : 0f) * vs.rotateSpeed * Time.deltaTime);
 
         tiltAngle = Mathf.SmoothDampAngle(model.transform.eulerAngles.x, input.y * vs.tiltAngle, ref tiltVelocity, .2f);
         model.transform.eulerAngles = new Vector3(tiltAngle, model.transform.eulerAngles.y, model.transform.eulerAngles.z);
@@ -68,7 +79,7 @@ public class PlayerController : MonoBehaviour
 
     void DiscreteMovement()
     {
-        if (rb.velocity.magnitude > .1f)
+        if (rb.velocity.magnitude > .05f)
             moveSpeed *= vs.traction;
         else
             moveSpeed = 0f;
@@ -102,6 +113,16 @@ public class PlayerController : MonoBehaviour
             vs = vehicles[Random.Range(0, vehicles.Length)];
             print("Switched to " + vs.name + "!");
             yield return new WaitForSeconds(Random.Range(minSwitchTime, maxSwitchTime));
+        }
+    }
+
+    void Audio()
+    {
+        if (vs.driveSound)
+        {
+            audioSource.clip = vs.driveSound;
+            audioSource.Play();
+            audioSource.volume = rb.velocity.magnitude / vs.maxVelocity;
         }
     }
 

@@ -13,4 +13,5 @@ public class VehicleStats : ScriptableObject
     public float backwardScalar;
     public float spinDragAngle;
     public float tiltAngle;
+    public AudioClip driveSound;
 }
