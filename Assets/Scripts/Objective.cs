@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Objective : MonoBehaviour
 {
@@ -9,12 +10,15 @@ public class Objective : MonoBehaviour
     [SerializeField] private float countdownTime;
 
     [SerializeField] private GameObject targetPanel;
-    [SerializeField] private Image targetPanelImg;
+    [SerializeField] private TMP_Text targetPanelText;
     [SerializeField] private Image timerDial;
-    [SerializeField] private Image timerImg;
 
-    [SerializeField] private Sprite[] objectiveSprites;
+    [SerializeField] private GameObject target;
+    private GameObject objective = null;
+
     private float timer;
+
+    [SerializeField] private Health pH;
 
     public void Start()
     {
@@ -24,32 +28,56 @@ public class Objective : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer >= 0)
+        if (GameManager.isGameOver)
+        {
+            targetPanel.SetActive(false);
+            timerDial.gameObject.SetActive(false);
+        }
+
+        if (timer > 0 && objective)
         {
             timer -= Time.deltaTime;
             float timePercent = timer / countdownTime;
             timerDial.color = countdownGradient.Evaluate(timePercent);
             timerDial.fillAmount = timePercent;
         }
-        else timerDial.gameObject.SetActive(false);
+        else if (objective && pH)
+        {
+            pH.Damage();
+            timerDial.gameObject.SetActive(false);
+            StartCoroutine(DisplayPanel("Target got away.", 2f));
+        }
+        else if (timer > 0)
+        {
+            timer = 0f;
+            timerDial.gameObject.SetActive(false);
+            StartCoroutine(DisplayPanel("Target taken out!", 2f));
+        }
+    }
+
+    private IEnumerator DisplayPanel(string msg, float time)
+    {
+        targetPanelText.text = msg;
+        targetPanel.SetActive(true);
+        yield return new WaitForSeconds(time);
+        targetPanel.SetActive(false);
     }
 
     IEnumerator DoObjectives()
     {
-        while (true)
+        while (!GameManager.isGameOver)
         {
             yield return new WaitForSeconds(countdownTime + 15f);
-
-            Sprite targetSprite = objectiveSprites[0];
+            targetPanelText.text = "A new target has appeared!";
             targetPanel.SetActive(true);
-            targetPanelImg.sprite = targetSprite;
 
             yield return new WaitForSeconds(2f);
+
+            objective = Instantiate(target, new Vector3(Random.Range(-10f, 10f), 1f, Random.Range(-10f, 10f)), target.transform.rotation);
 
             targetPanel.SetActive(false);
             timerDial.gameObject.SetActive(true);
             timer = countdownTime;
-            timerImg.sprite = targetSprite;
         }
     }
 }

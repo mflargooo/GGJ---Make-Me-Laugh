@@ -21,11 +21,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private VehicleStats vs;
     [SerializeField] private GameObject model;
     [SerializeField] private GameObject frontAttack;
-    [SerializeField] private GameObject backAttack;
     [SerializeField] private float minSwitchTime;
     [SerializeField] private float maxSwitchTime;
 
     [SerializeField] private VehicleStats[] vehicles;
+    [SerializeField] private GameObject discreteMovementTooltip;
+    private int presses = 0;
 
 
     // Start is called before the first frame update
@@ -41,6 +42,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GameManager.isGameOver)
+        {
+            discreteMovementTooltip.SetActive(false);
+            return;
+        }
+
         input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         deadlyVelocityThreshold = vs.maxVelocity * .75f;
 
@@ -83,11 +90,14 @@ public class PlayerController : MonoBehaviour
             moveSpeed *= vs.traction;
         else
             moveSpeed = 0f;
-        
-        if (Input.GetKeyDown(KeyCode.Space))
-            moveSpeed = Mathf.Clamp(moveSpeed + vs.acceleration * Time.deltaTime * Time.deltaTime, -vs.maxVelocity * vs.backwardScalar, vs.maxVelocity);
 
-        rb.velocity = Vector3.up * rb.velocity.y + transform.forward * moveSpeed;
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            presses += 1;
+            moveSpeed = Mathf.Clamp(moveSpeed + vs.acceleration * Time.deltaTime * Time.deltaTime, -vs.maxVelocity * vs.backwardScalar, vs.maxVelocity);
+        }
+
+        rb.velocity = Vector3.ClampMagnitude(Vector3.up * rb.velocity.y + transform.forward * moveSpeed, vs.maxVelocity);
 
         rb.transform.Rotate(Vector2.up * input.x * (rb.velocity.magnitude > .1f ? 1f : 0f) * vs.rotateSpeed * Time.deltaTime);
         tiltAngle = Mathf.SmoothDampAngle(model.transform.eulerAngles.x, vs.tiltAngle, ref tiltVelocity, .2f);
@@ -103,7 +113,7 @@ public class PlayerController : MonoBehaviour
     void AttackHandler()
     {
         frontAttack.SetActive(rb.velocity.magnitude > deadlyVelocityThreshold && Vector3.Dot(rb.velocity, transform.forward) > 0);
-        backAttack.SetActive(rb.velocity.magnitude > deadlyVelocityThreshold * vs.backwardScalar && Vector3.Dot(rb.velocity, transform.forward) < 0);
+        //backAttack.SetActive(rb.velocity.magnitude > deadlyVelocityThreshold * vs.backwardScalar && Vector3.Dot(rb.velocity, transform.forward) < 0);
     }
 
     IEnumerator RandomSwitch()
@@ -111,8 +121,24 @@ public class PlayerController : MonoBehaviour
         while (true)
         {
             vs = vehicles[Random.Range(0, vehicles.Length)];
+            if(!vs.continuousInput)
+            {
+                presses = 0;
+                StartCoroutine(Flash(discreteMovementTooltip));
+            }
             print("Switched to " + vs.name + "!");
             yield return new WaitForSeconds(Random.Range(minSwitchTime, maxSwitchTime));
+        }
+    }
+
+    IEnumerator Flash(GameObject obj)
+    {
+        while (presses < 10 && !vs.continuousInput)
+        {
+            obj.SetActive(true);
+            yield return new WaitForSeconds(.25f);
+            obj.SetActive(false);
+            yield return new WaitForSeconds(.25f);
         }
     }
 

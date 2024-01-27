@@ -1255,6 +1255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nav: {fileID: 7694984487759043942}
   flop: {fileID: 5558924041156797903, guid: 3855233fcccbd5442953d632ae5b3304, type: 3}
+  points: 50
 --- !u!136 &6227357767144119740
 CapsuleCollider:
   m_ObjectHideFlags: 0

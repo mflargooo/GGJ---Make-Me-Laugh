@@ -10,6 +10,8 @@ public class Health : MonoBehaviour
     [SerializeField] private float invincTime;
     [SerializeField] private GameObject flop;
 
+    [SerializeField] private GameObject heartContainer;
+
     private int currHealth;
 
     public bool recovering { get; private set; }
@@ -28,19 +30,20 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (invincTime > 0f)
+        if (invincTimer > 0f)
         {
-            invincTime -= Time.deltaTime;
+            invincTimer -= Time.deltaTime;
         }
         else if (invinc) invinc = false;
     }
-
-    public IEnumerator Hit()
+    public void Damage()
     {
         invinc = true;
+        invincTimer = invincTime;
+
         currHealth -= 1;
-        recovering = true;
-        float timer = recoverTime;
+        Destroy(heartContainer.transform.GetChild(currHealth).gameObject);
+        print("Health updated by " + (-1) + "!");
         if (currHealth <= 0)
         {
             GameManager.GameOver();
@@ -49,6 +52,12 @@ public class Health : MonoBehaviour
             Camera.main.transform.parent = ragdoll.transform;
             Destroy(gameObject);
         }
+    }
+    public IEnumerator Slipped()
+    {
+        Damage();
+        recovering = true;
+        float timer = recoverTime;
         
         while (timer >= 0)
         {
@@ -58,7 +67,6 @@ public class Health : MonoBehaviour
         }
 
         recovering = false;
-        invincTimer = invincTime;
     }
 
     public int GetHealth()

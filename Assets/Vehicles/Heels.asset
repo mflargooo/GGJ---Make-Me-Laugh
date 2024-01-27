@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   continuousInput: 1
   rotateSpeed: 100
-  acceleration: 30
+  acceleration: 100
   maxVelocity: 12
   traction: 0.75
   backwardScalar: 0.5
   spinDragAngle: 5
   tiltAngle: 0
+  driveSound: {fileID: 0}

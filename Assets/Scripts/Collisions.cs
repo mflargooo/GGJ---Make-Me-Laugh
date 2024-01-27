@@ -10,26 +10,33 @@ public class Collisions : MonoBehaviour
     [SerializeField] private PlayerController pc;
     Rigidbody pRb;
     Health pH;
-    private int basePts;
+
     private float playerSpeed;
     private void Start()
     {
-        basePts = GameManager.basePts;
         pRb = pc.GetComponent<Rigidbody>();
         pH = pRb.GetComponent<Health>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        /* Hit Valid NPC */
         if (3 == other.gameObject.layer)
         {
-            GameManager.UpdateScore(multiplier * basePts);
             playerSpeed = pc.GetSpeed();
-            other.gameObject.GetComponent<NPCController>().Hit(pRb.velocity.normalized * playerSpeed * .75f / Time.deltaTime + Vector3.up * 100f);
+            other.gameObject.GetComponent<NPCController>().Hit(pRb.velocity.normalized * playerSpeed * .75f / Time.deltaTime + Vector3.up * 100f, multiplier);
         }
+        /* Hit Puddle */
         else if (!pH.invinc && 6 == other.gameObject.layer && pRb.velocity.magnitude > 5f)
         {
-            StartCoroutine(pH.Hit());
+            StartCoroutine(pH.Slipped());
+        }
+        /* Hit Child */
+        else if (!pH.invinc && 8 == other.gameObject.layer && pRb.velocity.magnitude > 5f)
+        {
+            pH.Damage();
+            playerSpeed = pc.GetSpeed();
+            other.gameObject.GetComponent<NPCController>().Hit(pRb.velocity.normalized * playerSpeed * .75f / Time.deltaTime + Vector3.up * 100f, 0);
         }
     }
 }
