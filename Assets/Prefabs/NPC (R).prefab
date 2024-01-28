@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1545048418973352708, guid: 26ccea1fe9180f4448f4f6758539d893, type: 3}
       propertyPath: m_Volume
-      value: 0.01
+      value: 0.005
       objectReference: {fileID: 0}
     - target: {fileID: 4660883522516611055, guid: 26ccea1fe9180f4448f4f6758539d893, type: 3}
       propertyPath: maxCycleTime

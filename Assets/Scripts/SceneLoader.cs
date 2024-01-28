@@ -5,8 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    public void LoadScene(int i)
+    public void LoadScene(int scene)
     {
-        SceneManager.LoadScene(i);
+        SceneManager.LoadScene(scene);
+    }
+
+    public void LoadSceneAfterTime (int scene, float time)
+    {
+        StartCoroutine(TimedLoad(scene, time));
+    }
+
+    IEnumerator TimedLoad(int scene, float time)
+    {
+        yield return new WaitForSeconds(time);
+        SceneManager.LoadScene(scene);
     }
 }

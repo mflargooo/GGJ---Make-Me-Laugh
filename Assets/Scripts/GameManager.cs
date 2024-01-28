@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
         timer = gameTime + .99f;
         currChilds = new GameObject[maxChildren];
         currPeople = new GameObject[maxPeople];
+        PlayerPrefs.SetInt("Lastscore", 0);
     }
 
    Vector3 RandomPosition()
@@ -66,6 +67,11 @@ public class GameManager : MonoBehaviour
     public static void UpdateScore(int val)
     {
         score += val;
+        PlayerPrefs.SetInt("Lastscore", score);
+        if (score > PlayerPrefs.GetInt("Highscore"))
+        {
+            PlayerPrefs.SetInt("Highscore", score);
+        }
         print(score);
     }
 
