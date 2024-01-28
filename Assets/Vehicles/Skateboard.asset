@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41fd9c27fcfd2834eae0879630f4d77e, type: 3}
   m_Name: Skateboard
   m_EditorClassIdentifier: 
-  continuousInput: 0
+  continuousInput: 1
   rotateSpeed: 60
-  acceleration: 4000
-  maxVelocity: 16
+  acceleration: 400
+  maxVelocity: 14
   traction: 0.99
   backwardScalar: 0.6
   spinDragAngle: 3
