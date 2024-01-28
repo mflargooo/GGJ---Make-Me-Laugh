@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3698668567931837396
+--- !u!1001 &2245495445545525250
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -8,29 +8,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 745494637158867718, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
+      propertyPath: m_Volume
+      value: 0.325
+      objectReference: {fileID: 0}
+    - target: {fileID: 745494637158867718, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
+      propertyPath: MaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 745494637158867718, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 745494637158867718, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
+      propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5251632869801571596, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
       propertyPath: flop
       value: 
-      objectReference: {fileID: 8786265383569727691, guid: c80b32bdbd7b6644a85e41971725cbbc, type: 3}
+      objectReference: {fileID: 248816655411182906, guid: c126aa126bd5b4b46b2afee18638f7a6, type: 3}
     - target: {fileID: 6241683348589578346, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
       propertyPath: m_Name
-      value: Child Variant
+      value: NPC (W)
       objectReference: {fileID: 0}
-    - target: {fileID: 6241683348589578346, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7101329644217409156, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.625
-      objectReference: {fileID: 0}
-    - target: {fileID: 7101329644217409156, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.625
-      objectReference: {fileID: 0}
-    - target: {fileID: 7101329644217409156, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.625
+    - target: {fileID: 6883561726397992941, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
+      propertyPath: cycle
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7101329644217409156, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -38,11 +42,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7101329644217409156, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 1.293
       objectReference: {fileID: 0}
     - target: {fileID: 7101329644217409156, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.07
+      value: 9.402
       objectReference: {fileID: 0}
     - target: {fileID: 7101329644217409156, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
       propertyPath: m_LocalRotation.w
@@ -75,15 +79,11 @@ PrefabInstance:
     - target: {fileID: 7671443976209322304, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f8c2a212510ca6d40a54166dd82b0e6f, type: 2}
-    - target: {fileID: 7694984487759043942, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
-      propertyPath: m_Speed
-      value: 3.5
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2100000, guid: 3548c8b5f92d4104bab81d16001514d5, type: 2}
     - target: {fileID: 8644761400197796572, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f8c2a212510ca6d40a54166dd82b0e6f, type: 2}
+      objectReference: {fileID: 2100000, guid: 3548c8b5f92d4104bab81d16001514d5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

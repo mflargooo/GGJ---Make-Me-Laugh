@@ -34,7 +34,7 @@ public class Objective : MonoBehaviour
             timerDial.gameObject.SetActive(false);
         }
 
-        if (timer > 0 && objective)
+        else if (timer > 0 && objective)
         {
             timer -= Time.deltaTime;
             float timePercent = timer / countdownTime;

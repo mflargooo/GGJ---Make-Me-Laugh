@@ -22,10 +22,10 @@ public class RandomAudio : MonoBehaviour
 
     private IEnumerator RandomSounds()
     {
-        yield return new WaitForSeconds(Random.Range(1f, 6f));
+        yield return new WaitForSeconds(Random.Range(1f, 3f));
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(1f, 3f));
+            yield return new WaitForSeconds(Random.Range(4f, 7f));
             audioSource.PlayOneShot(audioClips[Random.Range(0, audioClips.Length)]);
         }
     }

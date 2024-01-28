@@ -11,6 +11,8 @@ public class Health : MonoBehaviour
     [SerializeField] private GameObject flop;
 
     [SerializeField] private GameObject heartContainer;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip[] slipSounds;
 
     private int currHealth;
 
@@ -55,6 +57,8 @@ public class Health : MonoBehaviour
     }
     public IEnumerator Slipped()
     {
+        audioSource.PlayOneShot(slipSounds[Random.Range(0, slipSounds.Length)]);
+
         Damage();
         recovering = true;
         float timer = recoverTime;

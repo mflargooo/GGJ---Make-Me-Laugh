@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 9f5a020ec01f6b8419cc5709c7d2e9c5, type: 2}
     - target: {fileID: 919132149155446097, guid: 65e6dd1b8c323ce48bbae7343c89c853, type: 3}
       propertyPath: m_Name
-      value: Ragdoll NPC
+      value: Ragdoll NPC (G)
       objectReference: {fileID: 0}
     - target: {fileID: 2447938232140680097, guid: 65e6dd1b8c323ce48bbae7343c89c853, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -345,7 +345,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.325
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -354,9 +354,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 50
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -445,6 +445,7 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: f05b9aa0187640b4a97ffe55d9728635, type: 3}
   - {fileID: 8300000, guid: 818779a9f28c0b748b4b97c0420c3978, type: 3}
+  cycle: 0
 --- !u!1 &1471994114261164884 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7215045436754205889, guid: 65e6dd1b8c323ce48bbae7343c89c853, type: 3}

@@ -672,7 +672,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.325
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -681,9 +681,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 50
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -772,6 +772,7 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: f05b9aa0187640b4a97ffe55d9728635, type: 3}
   - {fileID: 8300000, guid: 818779a9f28c0b748b4b97c0420c3978, type: 3}
+  cycle: 0
 --- !u!1 &1969860264061446583
 GameObject:
   m_ObjectHideFlags: 0
