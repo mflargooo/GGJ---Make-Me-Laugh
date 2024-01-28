@@ -448,7 +448,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.325
+  m_Volume: 0.005
   m_Pitch: 0.6
   Loop: 0
   Mute: 0
@@ -547,6 +547,10 @@ MonoBehaviour:
   audioSource: {fileID: -2539707253586064717}
   audioClips:
   - {fileID: 8300000, guid: 6b4a6b04766f6444281dc1548a02baa0, type: 3}
+  minStartTime: 0
+  maxStartTime: 2
+  minCycleTime: 4
+  maxCycleTime: 7
   cycle: 0
 --- !u!1 &2962716596443721451 stripped
 GameObject:

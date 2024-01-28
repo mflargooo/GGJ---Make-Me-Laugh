@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
     private Health hs;
-    private AudioSource audioSource;
+    [SerializeField] private AudioSource vehicleSounds;
 
     private Vector2 input = Vector2.zero;
     private float moveSpeed = 0f;
@@ -35,8 +35,6 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         hs = GetComponent<Health>();
-        audioSource = GetComponent<AudioSource>();
-
         StartCoroutine(RandomSwitch());
     }
 
@@ -45,6 +43,7 @@ public class PlayerController : MonoBehaviour
     {
         if(GameManager.isGameOver)
         {
+            StopAllCoroutines();
             discreteMovementTooltip.SetActive(false);
             return;
         }
@@ -106,8 +105,9 @@ public class PlayerController : MonoBehaviour
 
         rb.velocity = Vector3.ClampMagnitude(Vector3.up * rb.velocity.y + transform.forward * moveSpeed, vs.maxVelocity);
 
-        rb.transform.Rotate(Vector2.up * input.x * (rb.velocity.magnitude > .1f ? 1f : 0f) * vs.rotateSpeed * Time.deltaTime);
-        tiltAngle = Mathf.SmoothDampAngle(model.transform.eulerAngles.x, vs.tiltAngle, ref tiltVelocity, .2f);
+        int dir = Vector3.Dot(transform.forward, rb.velocity) >= 0 ? 1 : -1;
+        rb.transform.Rotate(Vector2.up * input.x * (rb.velocity.magnitude > .1f ? 1f : 0f) * dir * vs.rotateSpeed * Time.deltaTime);
+        tiltAngle = Mathf.SmoothDampAngle(model.transform.eulerAngles.x, vs.tiltAngle * dir, ref tiltVelocity, .2f);
         model.transform.eulerAngles = new Vector3(tiltAngle, model.transform.eulerAngles.y, model.transform.eulerAngles.z);
     }
 
@@ -158,9 +158,9 @@ public class PlayerController : MonoBehaviour
     {
         if (vs.driveSound)
         {
-            audioSource.clip = vs.driveSound;
-            audioSource.Play();
-            audioSource.volume = rb.velocity.magnitude / vs.maxVelocity;
+            vehicleSounds.clip = vs.driveSound;
+            vehicleSounds.Play();
+            vehicleSounds.volume = rb.velocity.magnitude / vs.maxVelocity;
         }
     }
 

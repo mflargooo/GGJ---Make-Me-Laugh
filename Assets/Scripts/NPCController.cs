@@ -68,7 +68,7 @@ public class NPCController : MonoBehaviour
     {
         while (player)
         {
-            if (!player.GetComponent<Health>().invinc && (transform.position - player.transform.position).magnitude < 1.5f && player.GetComponent<Rigidbody>().velocity.magnitude < 5f)
+            if (!player.GetComponent<Health>().invinc && (transform.position - player.transform.position).magnitude < 1.5f)
             {
                 player.GetComponent<Health>().Damage();
                 ResetChase();

@@ -673,7 +673,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.325
+  m_Volume: 0.005
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -773,6 +773,10 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: f05b9aa0187640b4a97ffe55d9728635, type: 3}
   - {fileID: 8300000, guid: 818779a9f28c0b748b4b97c0420c3978, type: 3}
+  minStartTime: 0
+  maxStartTime: 2
+  minCycleTime: 4
+  maxCycleTime: 7
   cycle: 0
 --- !u!114 &-5486023140866214051
 MonoBehaviour:

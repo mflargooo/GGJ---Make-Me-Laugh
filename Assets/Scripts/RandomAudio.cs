@@ -8,8 +8,8 @@ public class RandomAudio : MonoBehaviour
     [SerializeField] private AudioClip[] audioClips;
 
     [SerializeField] private float minStartTime = 0f;
-    [SerializeField] private float maxStartTime = 2f;
-    [SerializeField] private float minCycleTime = 4f;
+    [SerializeField] private float maxStartTime = .5f;
+    [SerializeField] private float minCycleTime = 3f;
     [SerializeField] private float maxCycleTime = 7f;
 
     [SerializeField] bool cycle = false;
