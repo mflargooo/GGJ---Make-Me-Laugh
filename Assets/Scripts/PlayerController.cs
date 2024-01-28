@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private VehicleStats[] vehicles;
     [SerializeField] private GameObject[] vehicleModels;
     [SerializeField] private GameObject discreteMovementTooltip;
+    [SerializeField] private float maxDriveVolume;
     private int presses = 0;
 
 
@@ -159,8 +160,7 @@ public class PlayerController : MonoBehaviour
         if (vs.driveSound)
         {
             vehicleSounds.clip = vs.driveSound;
-            vehicleSounds.Play();
-            vehicleSounds.volume = rb.velocity.magnitude / vs.maxVelocity;
+            vehicleSounds.volume = rb.velocity.magnitude / vs.maxVelocity * maxDriveVolume;
         }
     }
 

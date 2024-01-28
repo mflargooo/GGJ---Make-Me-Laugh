@@ -336,9 +336,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1058fe47552181342aa35d8e0aff2037, type: 3}
   - {fileID: 8300000, guid: 8ddf0cfda34f0644fad4c42353630a50, type: 3}
   minStartTime: 0
-  maxStartTime: 2
-  minCycleTime: 4
-  maxCycleTime: 7
+  maxStartTime: 5
+  minCycleTime: 7
+  maxCycleTime: 12
   cycle: 1
 --- !u!1001 &7793571590082190289
 PrefabInstance:

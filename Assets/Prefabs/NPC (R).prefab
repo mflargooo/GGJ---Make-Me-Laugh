@@ -12,6 +12,18 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 4660883522516611055, guid: 26ccea1fe9180f4448f4f6758539d893, type: 3}
+      propertyPath: maxCycleTime
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660883522516611055, guid: 26ccea1fe9180f4448f4f6758539d893, type: 3}
+      propertyPath: maxStartTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660883522516611055, guid: 26ccea1fe9180f4448f4f6758539d893, type: 3}
+      propertyPath: minCycleTime
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5311841667280054376, guid: 26ccea1fe9180f4448f4f6758539d893, type: 3}
       propertyPath: m_Name
       value: NPC (R)

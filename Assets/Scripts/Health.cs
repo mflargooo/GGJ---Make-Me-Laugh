@@ -45,7 +45,6 @@ public class Health : MonoBehaviour
 
         currHealth -= 1;
         Destroy(heartContainer.transform.GetChild(currHealth).gameObject);
-        print("Health updated by " + (-1) + "!");
         if (currHealth <= 0)
         {
             GameManager.GameOver();

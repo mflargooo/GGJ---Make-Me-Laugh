@@ -238,6 +238,8 @@ GameObject:
   m_Component:
   - component: {fileID: 599870603}
   - component: {fileID: 599870604}
+  - component: {fileID: 599870605}
+  - component: {fileID: 599870606}
   m_Layer: 0
   m_Name: Director
   m_TagString: Untagged
@@ -281,9 +283,53 @@ PlayableDirector:
     value: {fileID: 771665820}
   - key: {fileID: 9127346768223317117, guid: a2f4d786f2405f14986923c4d0c683c6, type: 2}
     value: {fileID: 736739041}
+  - key: {fileID: -6953347043916403950, guid: a2f4d786f2405f14986923c4d0c683c6, type: 2}
+    value: {fileID: 599870606}
   m_ExposedReferences:
     m_References:
     - 1779c3b3f4376dc4e8248e5e792d0428: {fileID: 771665816}
+--- !u!114 &599870605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599870602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5adb93edfce88114094927ee1b44528a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &599870606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599870602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 4ef53a49870f4ad4c8a95abb4a59c03b, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 599870605}
+          m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+          m_MethodName: LoadScene
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &736739039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -433,8 +479,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 10}
+  m_AnchoredPosition: {x: 0, y: -1.5}
+  m_SizeDelta: {x: 10, y: 13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &771665818
 MonoBehaviour:

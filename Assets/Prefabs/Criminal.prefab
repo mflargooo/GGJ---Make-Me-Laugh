@@ -295,7 +295,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 745494637158867718, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
       propertyPath: m_Volume
-      value: 0.4
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 745494637158867718, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
       propertyPath: MaxDistance
@@ -415,6 +415,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f5eb1137194f6a64481d4847436c740c, type: 3}
   minStartTime: 0
   maxStartTime: 0.5
-  minCycleTime: 2
-  maxCycleTime: 4
+  minCycleTime: 3
+  maxCycleTime: 6
   cycle: 1

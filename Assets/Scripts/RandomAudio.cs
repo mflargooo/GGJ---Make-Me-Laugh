@@ -30,8 +30,8 @@ public class RandomAudio : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(minStartTime, maxStartTime));
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(minCycleTime, maxCycleTime));
             audioSource.PlayOneShot(audioClips[Random.Range(0, audioClips.Length)]);
+            yield return new WaitForSeconds(Random.Range(minCycleTime, maxCycleTime));
         }
     }
 }

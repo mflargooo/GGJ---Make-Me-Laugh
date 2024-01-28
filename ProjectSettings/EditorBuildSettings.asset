@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/OfficeCutscene.unity
+    guid: 79e0f4893329da248b9c038623fbd4d6
+  - enabled: 1
+    path: Assets/Scenes/Field.unity
+    guid: 67f1114f5cd23194bac56aa28cf5e3ae
   m_configObjects: {}
