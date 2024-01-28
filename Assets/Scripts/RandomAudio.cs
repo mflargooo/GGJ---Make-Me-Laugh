@@ -7,6 +7,11 @@ public class RandomAudio : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip[] audioClips;
 
+    [SerializeField] private float minStartTime = 0f;
+    [SerializeField] private float maxStartTime = 2f;
+    [SerializeField] private float minCycleTime = 4f;
+    [SerializeField] private float maxCycleTime = 7f;
+
     [SerializeField] bool cycle = false;
     private void Start()
     {
@@ -22,10 +27,10 @@ public class RandomAudio : MonoBehaviour
 
     private IEnumerator RandomSounds()
     {
-        yield return new WaitForSeconds(Random.Range(1f, 3f));
+        yield return new WaitForSeconds(Random.Range(minStartTime, maxStartTime));
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(4f, 7f));
+            yield return new WaitForSeconds(Random.Range(minCycleTime, maxCycleTime));
             audioSource.PlayOneShot(audioClips[Random.Range(0, audioClips.Length)]);
         }
     }
