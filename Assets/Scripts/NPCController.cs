@@ -10,6 +10,8 @@ public class NPCController : MonoBehaviour
     [SerializeField] private int points;
 
     [SerializeField] private PlayerController player;
+    [SerializeField] private Vector3 roomCenter;
+    [SerializeField] private Vector3 roomRectangle;
 
     bool resetChase = false;
     // Start is called before the first frame update
@@ -42,7 +44,7 @@ public class NPCController : MonoBehaviour
     public void ResetChase()
     {
         resetChase = true;
-        nav.destination = new Vector3(Random.Range(-10f, 10f), transform.position.y, Random.Range(-10f, 10f));
+        nav.destination = new Vector3(Random.Range(-roomRectangle.x, roomRectangle.x), transform.position.y, Random.Range(-roomRectangle.z, roomRectangle.z)) + new Vector3(roomCenter.x, 0f, roomCenter.z);
     }
 
     private IEnumerator Avoid()
@@ -82,7 +84,7 @@ public class NPCController : MonoBehaviour
             {
                 nav.destination = transform.position;
                 yield return new WaitForSeconds(Random.Range(1f, 2f));
-                nav.destination = new Vector3(Random.Range(-10f, 10f), transform.position.y, Random.Range(-10f, 10f));
+                nav.destination = new Vector3(Random.Range(-roomRectangle.x, roomRectangle.x), transform.position.y, Random.Range(-roomRectangle.z, roomRectangle.z)) + new Vector3(roomCenter.x, 0f, roomCenter.z);
             }
             else
                 yield return null;

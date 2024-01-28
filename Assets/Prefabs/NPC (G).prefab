@@ -113,6 +113,8 @@ MonoBehaviour:
   flop: {fileID: 248816655411182906, guid: 13a1c6996d3dd1b4d9863ba39556dc8d, type: 3}
   points: 50
   player: {fileID: 0}
+  roomCenter: {x: 0, y: 1, z: 0}
+  roomRectangle: {x: 20, y: 0, z: 20}
 --- !u!136 &6227357767144119740
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -169,7 +171,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.325
+  m_Volume: 0.125
   m_Pitch: 1
   Loop: 0
   Mute: 0

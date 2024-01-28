@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 745494637158867718, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
       propertyPath: m_Volume
-      value: 0.325
+      value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: 745494637158867718, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
       propertyPath: MaxDistance
@@ -28,6 +28,18 @@ PrefabInstance:
       propertyPath: flop
       value: 
       objectReference: {fileID: 248816655411182906, guid: c126aa126bd5b4b46b2afee18638f7a6, type: 3}
+    - target: {fileID: 5251632869801571596, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
+      propertyPath: roomCenter.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5251632869801571596, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
+      propertyPath: roomRectangle.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5251632869801571596, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
+      propertyPath: roomRectangle.z
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 6241683348589578346, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
       propertyPath: m_Name
       value: NPC (W)

@@ -20,3 +20,4 @@ MonoBehaviour:
   backwardScalar: 0.75
   spinDragAngle: 2
   tiltAngle: 0
+  driveSound: {fileID: 8300000, guid: 8a46cf4a0f431954ebadddc3a61bc01a, type: 3}

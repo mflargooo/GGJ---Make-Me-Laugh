@@ -587,6 +587,7 @@ GameObject:
   - component: {fileID: 6166717816867952918}
   - component: {fileID: -4736411814911513933}
   - component: {fileID: -7590530755622880491}
+  - component: {fileID: -5486023140866214051}
   m_Layer: 7
   m_Name: Ragdoll Criminal
   m_TagString: Untagged
@@ -773,6 +774,18 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f05b9aa0187640b4a97ffe55d9728635, type: 3}
   - {fileID: 8300000, guid: 818779a9f28c0b748b4b97c0420c3978, type: 3}
   cycle: 0
+--- !u!114 &-5486023140866214051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857346692341591936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8a770c88b11ad4cb0073032c932193, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1969860264061446583
 GameObject:
   m_ObjectHideFlags: 0

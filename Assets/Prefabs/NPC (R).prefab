@@ -10,8 +10,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5311841667280054376, guid: 26ccea1fe9180f4448f4f6758539d893, type: 3}
       propertyPath: m_Name
-      value: NPC (R) Variant
+      value: NPC (R)
       objectReference: {fileID: 0}
+    - target: {fileID: 6325330349739349262, guid: 26ccea1fe9180f4448f4f6758539d893, type: 3}
+      propertyPath: flop
+      value: 
+      objectReference: {fileID: 175434162258134609, guid: f4a373651892a054eb0713d6857cc412, type: 3}
     - target: {fileID: 7553036324118459102, guid: 26ccea1fe9180f4448f4f6758539d893, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

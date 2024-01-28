@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxSwitchTime;
 
     [SerializeField] private VehicleStats[] vehicles;
+    [SerializeField] private GameObject[] vehicleModels;
     [SerializeField] private GameObject discreteMovementTooltip;
     private int presses = 0;
 
@@ -120,7 +121,13 @@ public class PlayerController : MonoBehaviour
     {
         while (true)
         {
-            vs = vehicles[Random.Range(0, vehicles.Length)];
+            int v = Random.Range(0, vehicles.Length);
+            vs = vehicles[v];
+            for (int i = 0; i < vehicleModels.Length; i++)
+            {
+                vehicleModels[i].SetActive(false);
+            }
+            vehicleModels[v].SetActive(true);
             if(!vs.continuousInput)
             {
                 presses = 0;

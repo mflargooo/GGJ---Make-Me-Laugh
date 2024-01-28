@@ -24,9 +24,13 @@ PrefabInstance:
       propertyPath: flop
       value: 
       objectReference: {fileID: 8786265383569727691, guid: c80b32bdbd7b6644a85e41971725cbbc, type: 3}
+    - target: {fileID: 6227357767144119740, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
+      propertyPath: m_Radius
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6241683348589578346, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
       propertyPath: m_Name
-      value: Child Variant
+      value: Child
       objectReference: {fileID: 0}
     - target: {fileID: 6241683348589578346, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
       propertyPath: m_Layer

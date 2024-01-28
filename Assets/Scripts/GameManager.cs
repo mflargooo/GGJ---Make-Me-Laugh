@@ -8,18 +8,26 @@ public class GameManager : MonoBehaviour
     public static int score;
     public static bool isGameOver = false;
 
+    [SerializeField] private Vector3 roomCenter;
+    [SerializeField] private Vector3 roomRectangle;
     [SerializeField] private float gameTime;
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private TMP_Text scoreText;
 
     [SerializeField] private GameObject angryChild;
+    [SerializeField] private GameObject[] people;
+    [SerializeField] private uint maxChildren;
+    [SerializeField] private uint maxPeople;
 
-    private GameObject currChild;
+    private GameObject[] currChilds;
+    private GameObject[] currPeople;
 
     private float timer;
     private void Start()
     {
         timer = gameTime + .99f;
+        currChilds = new GameObject[maxChildren];
+        currPeople = new GameObject[maxPeople];
     }
     private void Update()
     {
@@ -35,10 +43,13 @@ public class GameManager : MonoBehaviour
             timer -= Time.deltaTime;
         }
 
-        if(!currChild)
-        {
-            currChild = Instantiate(angryChild, new Vector3(Random.Range(-10f, 10f), 1f, Random.Range(-10f, 10f)), transform.rotation);
-        }
+        for (int i = 0; i < maxChildren; i++)
+            if (!currChilds[i])
+                currChilds[i] = Instantiate(angryChild, new Vector3(Random.Range(-roomRectangle.x, roomRectangle.x), 0f, Random.Range(-roomRectangle.y, roomRectangle.y)) + roomCenter, transform.rotation);
+
+        for (int i = 0; i < maxPeople; i++)
+            if (!currPeople[i])
+                currPeople[i] = Instantiate(people[Random.Range(0, people.Length)], new Vector3(Random.Range(-roomRectangle.x, roomRectangle.x), 0f, Random.Range(-roomRectangle.y, roomRectangle.y)) + roomCenter, transform.rotation);
     }
     public static void UpdateScore(int val)
     {
