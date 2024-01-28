@@ -9,6 +9,6 @@ public class End : MonoBehaviour
     void Start()
     {
         sl = GetComponent<SceneLoader>();
-        sl.LoadSceneAfterTime(2, 3f);
+        sl.LoadSceneAfterTime(3, 3f);
     }
 }

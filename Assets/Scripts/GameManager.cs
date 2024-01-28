@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
             timer -= Time.deltaTime;
         }
 
-        if (timer <= 0) sl.LoadScene(3);
+        if (timer <= 0) sl.LoadScene(4);
 
         for (int i = 0; i < maxChildren; i++)
             if (!currChilds[i])

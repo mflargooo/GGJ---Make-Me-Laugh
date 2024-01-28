@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/start.unity
+    guid: 110728c29ee3841109146adee10137d6
+  - enabled: 1
     path: Assets/Scenes/OfficeCutscene.unity
     guid: 79e0f4893329da248b9c038623fbd4d6
   - enabled: 1

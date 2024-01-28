@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   continuousInput: 0
   rotateSpeed: 60
-  acceleration: 1000
-  maxVelocity: 15
+  acceleration: 4000
+  maxVelocity: 16
   traction: 0.99
   backwardScalar: 0.6
   spinDragAngle: 3

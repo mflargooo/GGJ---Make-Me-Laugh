@@ -10,7 +10,7 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(scene);
         Time.timeScale = 1f;
 
-        if (scene != 3 /*lose*/)
+        if (scene != 3 /*!= lose*/)
         {
             GameManager.ResetScore();
             GameManager.isGameOver = false;
