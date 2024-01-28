@@ -26,10 +26,11 @@ public class Collisions : MonoBehaviour
             playerSpeed = pc.GetSpeed();
             other.gameObject.GetComponent<NPCController>().Hit(pRb.velocity.normalized * playerSpeed * .75f / Time.deltaTime + Vector3.up * 100f, multiplier);
         }
-        /* Hit Puddle */
+        /* Hit Obstacle */
         else if (!pH.invinc && 6 == other.gameObject.layer && pRb.velocity.magnitude > 5f)
         {
             StartCoroutine(pH.Slipped());
+            if (other.gameObject.name.Contains("Banana")) Destroy(other.gameObject);
         }
         /* Hit Child */
         else if (!pH.invinc && 8 == other.gameObject.layer && pRb.velocity.magnitude > 5f)
