@@ -7,7 +7,7 @@ public class RandomAudio : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip[] audioClips;
 
-    [SerializeField] bool cycle;
+    [SerializeField] bool cycle = false;
     private void Start()
     {
         if (!cycle)
