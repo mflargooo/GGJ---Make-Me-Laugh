@@ -295,7 +295,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 745494637158867718, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
       propertyPath: m_Volume
-      value: 0.125
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 745494637158867718, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
       propertyPath: MaxDistance

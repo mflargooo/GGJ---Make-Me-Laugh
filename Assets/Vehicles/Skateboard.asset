@@ -17,7 +17,7 @@ MonoBehaviour:
   acceleration: 1000
   maxVelocity: 15
   traction: 0.99
-  backwardScalar: 0
+  backwardScalar: 0.6
   spinDragAngle: 3
   tiltAngle: 0
   driveSound: {fileID: 8300000, guid: b86c2033d3cd4bc4aa31645cbcfda1ad, type: 3}

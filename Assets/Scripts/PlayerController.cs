@@ -97,6 +97,12 @@ public class PlayerController : MonoBehaviour
             presses += 1;
             moveSpeed = Mathf.Clamp(moveSpeed + vs.acceleration * Time.deltaTime * Time.deltaTime, -vs.maxVelocity * vs.backwardScalar, vs.maxVelocity);
         }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            presses += 1;
+            moveSpeed = Mathf.Clamp(moveSpeed - vs.acceleration * Time.deltaTime * Time.deltaTime, -vs.maxVelocity * vs.backwardScalar, vs.maxVelocity);
+        }
+
 
         rb.velocity = Vector3.ClampMagnitude(Vector3.up * rb.velocity.y + transform.forward * moveSpeed, vs.maxVelocity);
 
@@ -114,7 +120,6 @@ public class PlayerController : MonoBehaviour
     void AttackHandler()
     {
         frontAttack.SetActive(rb.velocity.magnitude > deadlyVelocityThreshold && Vector3.Dot(rb.velocity, transform.forward) > 0);
-        //backAttack.SetActive(rb.velocity.magnitude > deadlyVelocityThreshold * vs.backwardScalar && Vector3.Dot(rb.velocity, transform.forward) < 0);
     }
 
     IEnumerator RandomSwitch()

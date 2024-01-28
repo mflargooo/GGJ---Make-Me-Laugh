@@ -10,8 +10,7 @@ public class NPCController : MonoBehaviour
     [SerializeField] private int points;
 
     [SerializeField] private PlayerController player;
-    [SerializeField] private Vector3 roomCenter;
-    [SerializeField] private Vector3 roomRectangle;
+    [SerializeField] private float wanderRadius;
 
     bool resetChase = false;
     // Start is called before the first frame update
@@ -41,10 +40,17 @@ public class NPCController : MonoBehaviour
         }
     }
 
+    Vector3 RandomPosition()
+    {
+        NavMeshHit hit;
+        Vector3 randDir = Random.insideUnitSphere * 10f + transform.position;
+        NavMesh.SamplePosition(randDir, out hit, 10f, 1);
+        return hit.position;
+    }
     public void ResetChase()
     {
         resetChase = true;
-        nav.destination = new Vector3(Random.Range(-roomRectangle.x, roomRectangle.x), transform.position.y, Random.Range(-roomRectangle.z, roomRectangle.z)) + new Vector3(roomCenter.x, 0f, roomCenter.z);
+        nav.destination = RandomPosition();
     }
 
     private IEnumerator Avoid()
@@ -78,13 +84,15 @@ public class NPCController : MonoBehaviour
     }
     IEnumerator Wander()
     {
+
         while (true)
         {
             if ((nav.destination - transform.position).magnitude <= .5f)
             {
                 nav.destination = transform.position;
                 yield return new WaitForSeconds(Random.Range(1f, 2f));
-                nav.destination = new Vector3(Random.Range(-roomRectangle.x, roomRectangle.x), transform.position.y, Random.Range(-roomRectangle.z, roomRectangle.z)) + new Vector3(roomCenter.x, 0f, roomCenter.z);
+                nav.destination = RandomPosition();
+
             }
             else
                 yield return null;
