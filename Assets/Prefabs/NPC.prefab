@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7694984487759043942}
   - component: {fileID: 5251632869801571596}
   - component: {fileID: 6227357767144119740}
+  - component: {fileID: 1802605891651409862}
   m_Layer: 3
   m_Name: NPC
   m_TagString: Untagged
@@ -133,6 +134,27 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 1.5, z: 0}
+--- !u!95 &1802605891651409862
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6241683348589578346}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 30b663bbbe4baa344b6611cd081207dd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &7793571590082190289
 PrefabInstance:
   m_ObjectHideFlags: 0

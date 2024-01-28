@@ -47,12 +47,13 @@ public class NPCController : MonoBehaviour
 
     private IEnumerator Avoid()
     {
-        while (true)
+        while (player)
         {
-            print("avoiding");
             nav.destination = transform.position + (new Vector3(transform.position.x, 0f, transform.position.z) - new Vector3(player.transform.position.x, 0f, player.transform.position.z)).normalized * 5f;
             yield return null;
         }
+
+        StartCoroutine(Wander());
     }
 
     IEnumerator Chase()
