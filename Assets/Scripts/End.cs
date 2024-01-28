@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class End : MonoBehaviour
 {
+    private SceneLoader sl;
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        sl = GetComponent<SceneLoader>();
+        sl.LoadSceneAfterTime(2, 3f);
     }
 }

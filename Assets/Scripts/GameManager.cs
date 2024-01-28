@@ -34,6 +34,11 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("Lastscore", 0);
     }
 
+    public static void ResetScore()
+    {
+        score = 0;
+    }
+
    Vector3 RandomPosition()
     {
         NavMeshHit hit;
