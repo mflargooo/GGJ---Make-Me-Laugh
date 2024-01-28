@@ -4579,6 +4579,7 @@ GameObject:
   - component: {fileID: 1728722465}
   - component: {fileID: 1728722464}
   - component: {fileID: 1728722463}
+  - component: {fileID: 1728722466}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4656,9 +4657,10 @@ MonoBehaviour:
   - {fileID: 6241683348589578346, guid: 0d96216e49893d24ab1a4a7f9e001f66, type: 3}
   - {fileID: 2973079283293713523, guid: 829b5e244da8a0d429707828ab0ca24b, type: 3}
   - {fileID: 5311841667280054376, guid: 26ccea1fe9180f4448f4f6758539d893, type: 3}
-  maxChildren: 3
+  maxChildren: 2
   maxPeople: 60
   spawnRadius: 50
+  sl: {fileID: 1728722466}
 --- !u!4 &1728722465
 Transform:
   m_ObjectHideFlags: 0
@@ -4674,6 +4676,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1728722466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728722462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5adb93edfce88114094927ee1b44528a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1802967977
 GameObject:
   m_ObjectHideFlags: 0

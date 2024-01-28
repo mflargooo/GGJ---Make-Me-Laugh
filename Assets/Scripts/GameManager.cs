@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     private GameObject[] currChilds;
     private GameObject[] currPeople;
 
+    [SerializeField] private SceneLoader sl;
+
     private float timer;
     private void Start()
     {
@@ -59,6 +61,8 @@ public class GameManager : MonoBehaviour
             scoreText.text = "Score: " + score.ToString();
             timer -= Time.deltaTime;
         }
+
+        if (timer <= 0) sl.LoadScene(3);
 
         for (int i = 0; i < maxChildren; i++)
             if (!currChilds[i])
